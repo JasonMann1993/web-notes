@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Proxy Set Map</title>
+</head>
+<body>
+<script>
+    // const person = {name: 'jason', age: 200};
+    // const personProxy = new Proxy(person, {
+    //     get(target,key) {
+    //         return target[key].toUpperCase();
+    //     },
+    //     set(target,key,value){
+    //         if(typeof value == 'string') {
+    //             target[key] = value.trim()
+    //         }
+    //     }
+    // });
+    // personProxy.name = 'lalal';
+
+
+    // Proxy 例子 🌰
+    // const phoneHandler = {
+    //     set(target, key, value) {
+    //         target[key] = value.match(/[0-9]/g).join('');
+    //     },
+    //     get(target, key) {
+    //         return target[key].replace(/(\d{3})(\d{4})(\d{4})/,"$1-$2-$3")
+    //     }
+    // }
+    // const phoneNumber = new Proxy({}, phoneHandler)
+    // phoneNumber.home = '177 465 29950'
+    // console.log(phoneNumber)
+
+
+    // Set     下标就是值   不能有重复的值  不能遍历
+    // const colors = new Set();
+    // colors.add('red')
+    // colors.add('blue')
+    // colors.add('green')
+    // console.log(new Set([1,1,2,2,3,4]));// set 元素不能重复
+
+
+    // WeakSet     // 元素只能是对象
+    // let jelly = {name: 'jelly', age: 20};
+    // let mary = {name: 'mary', age: 25};
+    // const people = new WeakSet([jelly,mary])
+    // // 不能遍历
+    // console.log(people);
+    // mary = null;
+    // console.log(people)  // 自动删除 mary
+
+
+    // Map   与数组的区别是 键可以是任意类型
+    // const people = new Map([['apple', 6],['banana', 5]]);
+    // people.set('jelly', 23)
+</script>
+</body>
+</html>

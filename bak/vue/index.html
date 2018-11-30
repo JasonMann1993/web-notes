@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username" key="user-input">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address" key="email-input">
+        </template>
+        <button @click="login">切换</button>
+    </div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            loginType: 'username',
+        },
+        computed: {
+
+        },
+        methods:{
+            login:function(){
+                if(this.loginType == 'username'){
+                    this.loginType = 1;
+                }else{
+                    this.loginType = 'username';
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        .highlight{
+            padding: 2px 5px;
+            background: #00adb5;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+<script>
+    // let const 只在块级作用域生效
+    // {
+    //     let a = '123';
+    //     const b = '235'
+    // }
+    // console.log(b)
+    // console.log(a)
+
+
+    // 暂时性死区 报错
+    // console.log(color)
+    // let color = 'red'
+
+
+
+    // 箭头函数
+    // var array1 = [1,2,3,4]
+    // array1.map(item => {
+    //     console.log(this)// 箭头函数不会创建自己的this,它只会从自己的作用域链的上一层继承this
+    //     console.log(item);
+    // })
+
+
+    // 字符模版  变量与字符串的混合使用
+    // const person = 'jason';
+    // const age = 5;
+    // const sentence = `${person} is ${age} years old`;
+    // console.log(sentence)
+    // $('#demo').append(`<div>${person}</div>`)
+
+
+    // 字符串模版示例  模板可以嵌套
+    // const jason = {
+    //     name: 'jason',
+    //     data: '2018-11-26',
+    //     todos: [
+    //         {name: 'go to store', completed: false},
+    //         {name: 'watch movie', completed: true},
+    //         {name: 'running', completed: false}
+    //     ]
+    // }
+    // const template = `
+    //     <ul>
+    //         ${jason.todos.map(todo => `
+    //             <li>
+    //                 ${todo.name} ${todo.completed ? '✅' : '❌'}
+    //             </li>`).join('')}
+    //     </ul>
+    // `
+    // console.log(template)
+    // document.body.innerHTML = template
+
+
+    // 标签模板  函数就是标签
+    // function highlight(strings, ...values){
+    //     const highlighted = values.map(value => `<span class="highlight">${value}</span>`);
+    //     let str = '';
+    //     strings.forEach((string,i) => str += `${string}${highlighted[i] || ''}`);
+    //     return str;
+    // }
+    // const user = 'jason';
+    // const topic = 'learn js';
+    // const sentence = highlight`h ${user} has comment on your topic ${topic}.`
+    // console.log(sentence)
+    // document.body.innerHTML = sentence
+
+
+    // 对象解构
+    // const Tom = {
+    //     name: 'Tom',
+    //     age: 25,
+    //     family: {
+    //         mother: 'mother',
+    //         father: 'father',
+    //         brother: 'brother'
+    //     },
+    // }
+    // const {name,age} = Tom;
+    // const {mother,father,brother} = Tom.family;
+    // const {mother,father,brother,sister='no sister'} = Tom.family;
+    // const {father: f,mother,brother} = Tom.family; // 变量重命名
+    // console.log(name,age,mother,f)
+
+
+    // 数组解构
+    // const numbers = ['one', 'two', 'three'];
+    // const [one,two] = numbers;
+    // const [one,,three] = numbers;
+    // const [one,...others] = numbers;
+    // let a = 10;
+    // let b = 20;
+    // [a,b] = [b,a]
+
+
+    // for of 用法
+    // fruits = ['banana', 'apple', 'orange']
+    // for(let fruit of fruits.entries()){// 同时获取索引值
+    //     if(fruit == 'apple'){
+    //         continue;
+    //     }
+    //     console.log(fruit[0],fruit[1])
+    // }
+    // sume(1,2,3,4,5)
+    // function sume(){
+    //     let sum = 0;
+    //     for(let arg of arguments){
+    //         sum += arg
+    //     }
+    //     console.log(sum)
+    // }
+
+
+    // array 方法
+    // const inventory = [
+    //     {name:'apples', quantity: 2},
+    //     {name:'bananas', quantity: 0},
+    //     {name:'cherries', quantity: 3}
+    // ];
+    // Array.from   将其他类型转换成数组
+    // todos = ['1', '2', '3']
+    // names = Array.from(todos, todo=>todo) // 遍历并使用 map 方法
+    // console.log(names)
+
+    // .find()
+    // const bananas = inventory.find(fruit => fruit.name=='bananas')
+    // console.log(bananas)
+
+    // .findIndex()
+    // const bananasIndex = inventory.findIndex(fruit => fruit.name=='bananas')
+    // console.log(bananasIndex);
+
+    // .some()
+    // const isEnough = inventory.some(fruit=> fruit.quantity > 0)
+    // console.log(isEnough)
+
+    // .every()
+    // const isAllEnough = inventory.every(fruit=> fruit.quantity > 0)
+    // console.log(isAllEnough)
+
+
+    // 扩展运算符
+    // let youngers = ['jason', 'merry', 'lily']
+    // let olders = ['mann', 'james']
+    // let members = [...youngers,...olders]
+    // console.log(members)
+
+    // const fruit = ['apple', 'banana']
+    // const newFruit = ['orange']
+    // fruit.push(...newFruit)
+    // console.log(fruit)
+
+
+    // 对象字面量
+    // const name = 'jason'
+    // const age = 2
+    // const jason = {
+    //     name,   // 不用  name:name
+    //     age,
+    //     getAge() {  // 不用getAge : function(){
+    //         alert(this.age)
+    //     }
+    // }
+</script>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSEncrypt Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <script type="text/javascript" src="jsencrypt.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <script type="text/javascript">
+
+        // Call this code when the page is done loading.
+        $(function() {
+
+            // Run a quick encryption/decryption when they click.
+            $('#testme').click(function() {
+
+                // Encrypt with the public key...
+                // var encrypt = new JSEncrypt();
+                // encrypt.setPublicKey($('#pubkey').val());
+                // var encrypted = encrypt.encrypt($('#input').val());
+                encrypted = 'mF0WJbV/0MH/jvBLfjd2Of8wsQKEqZrTJg1lH6wNgQlBHm+p0nVvZ5mn2imyWwvcw33g3SLvCH8ofzWS2jOY2T/I/QoY14Qh9LZ3N9TUN4Eo8u5A/V2C/R6/t6W6rmYH74xSue1DyKewZmUk5lFiQ/czp3ljybKaG5Bw7GAgrb1hyqoYRH6UJr3vBKcPgZOX7SM3sy43YeW+0dQxE87UTQYTO6H35YCk5HCZcEOk5cIDBKKv1pV7nOeu673Y3fRwQjOy1XmrhYlRLaE6hNxfmmGaYR1FwY190vKNggbdNrEo1vKebbOQknFeUVl8+b9qw3ieun2/j9C7z/gjx8xe4g=='
+                console.log(encrypted)
+
+                // Decrypt with the private key...
+                var decrypt = new JSEncrypt();
+                decrypt.setPrivateKey($('#privkey').val());
+                var uncrypted = decrypt.decrypt(encrypted);
+                console.log(uncrypted)
+
+                // Now a simple check to see if the round-trip worked.
+                if (uncrypted == $('#input').val()) {
+                    alert('It works!!!');
+                } else {
+                    alert('Something went wrong....');
+                }
+            });
+        });
+    </script>
+
+    <label for="privkey">Private Key</label><br/>
+    <textarea id="privkey" rows="15" cols="65">-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDkaTKbAERvJGE0
+jGsdPXUI1FpO1uDkBkuuQU4LRv0Quw9r8j+fVNkN9rZVXMV7MiGOgb80Z0k9zRxZ
+5KWOqMnSlrpyO3WjhFpDJeSmqZ4wLMFwmxrr31AjabD5Nkf9dQ7RiEIuM49g27+M
+3OFvdIPcLgCyXnkl8FwBceBs38QbCXY5MrwlZr13yWZnyj6fbbG8t4atAzJ6bnj3
+FZuvynC3QnMaVi6YnTIlBOUOHtqt/jsUTOCWkwKqkZh+RZF2fx3IFkSpJAOMgT5p
+jSnfEJkK5E4JJHobLo/dFO0J7Gve+qb/lfJ9UpnZe78N1TAvbJiNZoN22ghbuIAW
+M5qqIqOzAgMBAAECggEBAItUJFtqoVQOpADy+s/+UirNpjzbVJmjwXyNN3cnmW0g
+PjsBrY+aqUCcUwLlMU2B+fg86w6jRokdWgL3t4m7Kkl8SkUuQgc5z/mP3tdPNkB6
+vJDc/GIPeYnwidSrKOTSB/UGoiAesYJK6aCaiCV9tIWVxjUH7eyXnvf+qAChyrUW
+PG/FirLyYmz1yRG99VKKE+iEIzemGSswU0DI0bwTFQ0MunLeJf0EdT20XppNwnl4
+uoRgOBpMkW02vxDDWke2YIpk128KFRtPE3zF7W+Prb3ifMuQHSqDdqTgZA5+G3A9
+D+lwczy95+0mIBpJ8rKQGjJ51ZT5WVMET9+Hb9+nUIECgYEA9NluRzIi9tZxwQa2
+KdU8WAtWZZQZfG18mSFg8/QYrAGF2TyLAW0mEIe7nQXxPzm50HdpxTJCkUrXGm3u
+hfPayx18H4oVVYRepSSfV+xe7wdogJWV6i5h/LaZsiTk1O8vF9Cwc3yUyVoMtKsg
+yVcsONOzo/Kg/vwejQJb1C8dNvMCgYEA7tAewjA25vDmfiWZ0lrWKlwGQZ97+pMU
+X+N12DWxL1Lvi6jBKXlK+Eiz19Qm/mBz9RxrDDY4/o0IjtTxdOh5thDaiqIcnqQn
+PiBpm7zbheZOlPBGjFJ1vwueIWvqbx9vcqHik/4xHwuFNwQ+YCSpVpVoqrgoN/h/
+fX5+hKm1kEECgYEAzn69UZAICtLKNveZE+jBLqPJJnvjjpur1F1hLfzz/cR/BLnZ
+pcdOrew7Hu+PCTp+6kB7VJLRr0VF6gVCf3gsUta4AsVqvqeXRoF/XSB84+wEh0Ug
+nNKnUwEQ2DvjPW3G8rfOyGcN+E5YntogGY3KPtbUDvWmL8WjYlrV5Toi0l8CgYAQ
+Ujr37JGkAOzPzEQSA1FFvdpTm9G+U1T+JK6GI01DvbhPZC4nZnnAND/OTVqI4hCq
+vNF4GTCV/Q+Lq3QBGG5RCh/Vf7TTBscD0PVGxoZ+RTozpaQ8rNoNP38EK7ru80gL
+npK8qI+03nWxR+H3cin8l+N6X3GoOZyE+CMvb+XPwQKBgEeDjwTWxVhH/uksO3pw
+MgbHjauD6AjuW9jc2a7ngFCWSQxQ3+xK1Spn6pbVdLPiBgInxCIl8d6S1yFU0Uan
+iZHgy4fs1hdJRSuJ6qydqSwlS2C+gDpyY8ye0i+jq5VYYhKcpJCrCgaQGbleuaUd
+ldp7v1FD8uyeemknGA35f6Id
+-----END PRIVATE KEY-----</textarea><br/>
+    <label for="pubkey">Public Key</label><br/>
+    <textarea id="pubkey" rows="15" cols="65">-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5GkymwBEbyRhNIxrHT11
+CNRaTtbg5AZLrkFOC0b9ELsPa/I/n1TZDfa2VVzFezIhjoG/NGdJPc0cWeSljqjJ
+0pa6cjt1o4RaQyXkpqmeMCzBcJsa699QI2mw+TZH/XUO0YhCLjOPYNu/jNzhb3SD
+3C4Asl55JfBcAXHgbN/EGwl2OTK8JWa9d8lmZ8o+n22xvLeGrQMyem549xWbr8pw
+t0JzGlYumJ0yJQTlDh7arf47FEzglpMCqpGYfkWRdn8dyBZEqSQDjIE+aY0p3xCZ
+CuROCSR6Gy6P3RTtCexr3vqm/5XyfVKZ2Xu/DdUwL2yYjWaDdtoIW7iAFjOaqiKj
+swIDAQAB
+-----END PUBLIC KEY-----</textarea><br/>
+    <label for="input">Text to encrypt:</label><br/>
+    <textarea id="input" name="input" type="text" rows=4 cols=70>This is a test!</textarea><br/>
+    <input id="testme" type="button" value="Test Me!!!" /><br/>
+
+</div>
+</body>
+</html>

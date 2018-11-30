@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>symbol</title>
+</head>
+<body>
+
+<script>
+    // symbol
+
+    // 避免重复
+    const peter = Symbol('perter');
+    const classRoom = {
+        [Symbol('Lily')] : {grade: 60, gender: 'female'},
+        [Symbol('Nina')] : {grade: 80, gender: 'female'},
+        [Symbol('Lily')] : {grade: 60, gender: 'female'},
+    }
+    for(let key in classRoom) {
+        console.log(key)// 无法拿到Symbol
+    }
+    // 无法遍历
+    const syms = Object.getOwnPropertySymbols(classRoom)
+    console.log(syms)
+
+
+
+</script>
+</body>
+</html>

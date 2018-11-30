@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>class  iterator generator</title>
+</head>
+<body>
+<script>
+    //  //原型继承
+    // function User(name, email) {
+    //     this.name = name;
+    //     this.email = email;
+    // }
+    // // 赋值方法给原型   避免内存重复占用
+    // User.prototype.info = function () {
+    //     console.log(`Hi, I'm ${this.name}`)
+    // }
+    // const a = new User('a', 'a@outlook.com');
+    // const b = new User('b', 'b@outlook.com');
+
+
+    // 类
+    // class User {
+    //     constructor(name, email) {// 构造
+    //         this.name = name;
+    //         this.email = email;
+    //     }// 注意没有逗号
+    //
+    //     info(){
+    //         console.log(`Hi, I'm ${this.name}`)
+    //     }
+    //
+    //     static description(){// 静态方法
+    //         console.log(`static function`);
+    //     }
+    //
+    //     set github(value){ // == php __set()
+    //
+    //         this.githubName = value;
+    //     }
+    //
+    //     get github(){ // == php __get()
+    //         return `https://github.com`;
+    //     }
+    // }
+    // const a = new User('a', 'a@outlook.com');
+    // const b = new User('b', 'b@outlook.com');
+
+
+    // class 继承
+    // class Animal {
+    //     constructor(name) {
+    //         this.name = name;
+    //         this.belly = []
+    //     }
+    //
+    //     eat(food){
+    //         this.belly.push(food);
+    //     }
+    //
+    //     speak(){
+    //         console.log('speak')
+    //     }
+    // }
+    //
+    // class Dog extends Animal {
+    //     constructor(name,age){
+    //         super(name); // 继承需要调用 父类 构造函数
+    //         this.age = age;
+    //     }
+    //
+    //     bark() {
+    //         console.log('Bark bark!')
+    //     }
+    //
+    //     speak(){ // 覆盖父类
+    //         console.log('bar speak');
+    //     }
+    // }
+    // const lucky = new Dog('lucky', 2)
+
+
+
+    // 扩展内建对象数组
+    // function MyArray() {
+    //     Array.apply(this.arguments)
+    // }
+    // const colors = new MyArray();
+    // colors[0] = 'red';
+    // console.log(colors.length);
+    // colors.length = 0;
+    // console.log(colors[0]);
+
+    // class movieCollection extends Array {
+    //     constructor(name, ...items) {
+    //         super(...items);
+    //         this.name = name;
+    //     }
+    //
+    //     add(movie) {
+    //         this.push(movie)
+    //     }
+    // }
+    // const movies = new movieCollection('favorite movies',
+    //     { name: 'The Croods', scores: 8.7},
+    //     { name: 'The Shawshank Redemption', scores: 9.6},
+    //     { name: 'Léon', scores: 9.4},
+    //     { name: 'Days of Summer', scores: 8.0},
+    // )
+    // movies.add({ name: 'Pride & Prejudice', score: 8.4})
+    // console.log(movies)
+
+
+    // 遍历器
+    // Array.prototype.traverse = function () {
+    //     let i = 0;
+    //     let items = this;
+    //     return {
+    //         next(){
+    //             const done = i >= items.length;
+    //             const value = done ? undefined : items[i++]
+    //             return {
+    //                 value,
+    //                 done
+    //             }
+    //         }
+    //     }
+    // }
+    // const colors = ['red', 'blue', 'green'];
+    // const iterator = colors.traverse();
+
+
+    // 生成器
+    // function* listColors() {
+    //     console.log(1)
+    //     yield 'red';
+    //     console.log(2)
+    //     yield 'green';
+    //     console.log(3)
+    //     yield 'blue';
+    // }
+    // const colors = listColors();
+    // colors.next()
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>es6 promise</title>
+    <!--<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+</head>
+<body>
+ES6 Promise
+</body>
+<script>
+
+    // jquery
+    // let user;
+    // fetch all users
+    // $.get('https://api.github.com/users', data=> {
+    //     console.log('fetched all users')
+    //     user = data[0].login;
+    //
+    //     // fetch the first user's repos
+    //     $.get(`https://api.github.com/users/${user}/repos`,data=>{
+    //         console.log('fetched user repos');
+    //         console.log(data)
+    //     })
+    //
+    // })
+
+
+    // axios
+    // let username;
+    // const usersPromise = axios.get('https://api.github.com/users');
+    //
+    // usersPromise.then(response => {
+    //     username = response.data[0].login;
+    //     return axios.get(`https://api.github.com/users/${username}/repos`);
+    // }).then(response => {
+    //     console.log(response.data)
+    // }).catch(err => {
+    //     console.log(err)
+    // })
+
+
+
+    // build promise
+
+    // const p = new Promise((resolve,reject) => {
+    //     setTimeout(()=>{
+    //         resolve('jason is awesome')
+    //     },2000)
+    // })
+    // p.then(data=>{
+    //     console.log(data)
+    // })
+
+    // 同时执行 都成功后 做一些事
+    // Promise
+    //     .all([promise1,promise2])
+    //     .then()
+    //     .catch()
+
+    // 同时执行 最先执行的 直接返回
+    // Promise
+    //     .race([promise1,promise2])
+    //     .then()
+    //     .catch()
+
+</script>
+</html>
