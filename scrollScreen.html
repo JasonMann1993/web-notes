@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        body, html {
+            background-color: #010C39;
+            height: 100%;
+        }
+
+        /* container */
+        .container {
+            height: 100%;
+            overflow: auto;
+        }
+
+        /* header */
+        .header {
+            width: 100%;
+            position: fixed;
+            display: flex;
+            height:50px;
+            top:0;
+            justify-content: space-around;
+            background-color: #1D3163;
+            z-index:1;
+
+        }
+
+        .header div {
+            /*flex: 1;*/
+            font-size: 28px;
+            padding: 10px 0;
+            text-align: left;
+        }
+
+        /* content */
+        .content{
+            padding-top:50px;
+            /*height:100%;*/
+            overflow: hidden;
+        }
+        .item{
+            display: flex;
+            justify-content: space-around;
+            align-items:center;
+
+        }
+        .item div{
+            /*flex:1;*/
+            text-align: left;
+            padding: 10px 0;
+            font-size: 26px;
+        }
+
+        .small-font{
+            font-size: 20px !important;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div>预约时间</div>
+        <div>车主姓名</div>
+        <div>车牌号码</div>
+        <div>服务顾问</div>
+    </div>
+    <div class="content">
+        @foreach($res as $re)
+
+        <div class="item">
+            <div>{{ $re[6] }}</div>
+            <div>{{ $re[3] }}</div>
+            <div class="plate">{{ $re[2] }}</div>
+            <div>{{ $re[5] }}</div>
+        </div>
+            @endforeach
+    </div>
+</div>
+</body>
+<script src="/plugins/libs/jquery/jquery/dist/jquery.js"></script>
+<script>
+
+
+
+
+    function scroll(){
+        $('.content').height($('body').height()-$('.header').height())
+        var con = $('.content')
+        // 窗口高度
+        let wheight = window.innerHeight
+        // 内容高度 + 超出部分高度
+        var cheight = $('.content')[0].scrollHeight
+
+        // console.log(wheight,cheight)
+        if(wheight >= cheight){
+            // 窗口高度满足数据显示 什么也不做
+            return false;
+        }
+
+
+        // 数据超出屏幕则滚动
+
+        // 获取第一条数据
+        var firstData = $('.content div:first')
+        // console.log(firstData.height(),con.scrollTop())
+
+        // 滚动到底部加上 新的元素
+        if(con.scrollTop() + con[0].clientHeight ==con[0].scrollHeight){
+            // console.log('append')
+            $('.content').append('<div class="item">' + firstData.html() + '</div>')
+        }
+
+        // 滚动到一个div的高度，移除div
+        if(con.scrollTop() >= firstData.height()) {
+            $('.content div:first').remove()
+        }
+
+        con.scrollTop(con.scrollTop() + 1)
+        // console.log(con.scrollTop())
+    }
+    setInterval(scroll,100)
+
+
+    // 修改过长字体大小
+    var plate = document.querySelectorAll('.plate')
+    plate.forEach(function(p){
+
+        // console.log(p.clientWidth)
+        if(p.textContent.length >= 10){
+        // if(p.clientWidth >= 140){
+            p.classList.add('small-font')
+        }
+    })
+
+    // 修改每一列数据的对齐方式
+    for(let i=1;i<5;i++){
+        var left =  $('.header div:nth-child('+i+')').offset().left
+        $('.item div:nth-child('+i+')').offset({left:left})
+    }
+
+
+
+</script>
+</html>
